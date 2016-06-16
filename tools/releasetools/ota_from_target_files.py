@@ -717,7 +717,6 @@ endif;
 
   script.SetProgress(1)
   script.AddToZip(input_zip, output_zip, input_path=OPTIONS.updater_binary)
-  metadata["ota-required-cache"] = str(script.required_cache)
   WriteMetadata(metadata, output_zip)
 
 
@@ -1985,7 +1984,7 @@ def main(argv):
   OPTIONS.input_tmp, input_zip = common.UnzipTemp(args[0])
 
   OPTIONS.target_tmp = OPTIONS.input_tmp
-  OPTIONS.info_dict = common.LoadInfoDict(input_zip, OPTIONS.target_tmp)
+  OPTIONS.info_dict = common.LoadInfoDict(input_zip)
 
   if OPTIONS.verbose:
     print "--- target info ---"
